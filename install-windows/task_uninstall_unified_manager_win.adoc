@@ -1,0 +1,57 @@
+---
+permalink: install-windows/task_uninstall_unified_manager_win.html 
+sidebar: sidebar 
+keywords: uninstall, unified manager 
+summary: Unified Manager をアンインストールするには、プログラムと機能ウィザードを使用するか、コマンドラインインターフェイスから無人アンインストールを実行します。 
+---
+= Unified Manager をアンインストールしています
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+:pp: &#43;&#43;
+
+
+[role="lead"]
+Unified Manager をアンインストールするには、プログラムと機能ウィザードを使用するか、コマンドラインインターフェイスから無人アンインストールを実行します。
+
+* 必要なもの *
+
+* Windows の管理者権限が必要です。
+* ソフトウェアをアンインストールする前に、 Unified Manager サーバからすべてのクラスタ（データソース）を削除しておく必要があります。
+* MySQLポート3306を許可またはブロックするために作成されたファイアウォールルールは手動で削除する必要があります。ファイアウォールルールは自動的には削除されません。
+
+
+.手順
+. 次のいずれかを実行して Unified Manager をアンインストールします。
++
+** Unified Managerをプログラムと機能*ウィザードからアンインストールする場合は、次の手順を実行します。
++
+... [ コントロールパネル *>* プログラムと機能 * ] に移動します。
+... Active IQ Unified Manager を選択し、 * Uninstall * をクリックします。
+
+
+** コマンドラインからUnified Managerをアンインストールする場合は、次の手順を実行します。
++
+... 管理者権限でWindowsのコマンドラインにログインします。
+... Active IQ Unified Manager ディレクトリに移動し、次のコマンドを実行します。
++
+`+msiexec /x {A78760DB-7EC0-4305-97DB-E4A89CDFF4E1} /qn /l*v %systemdrive%\UmUnInstall.log+`
+
++
+サーバでユーザアカウント制御（ UAC ）が有効になっていて、ドメインユーザとしてログインしている場合は、コマンドラインによるアンインストールを実行する必要があります。
+
++
+Unified Manager がシステムからアンインストールされます。
+
+
+
+
+
+. Unified Manager のアンインストール時に削除されない次のサードパーティパッケージとデータをアンインストールします。
++
+** サードパーティパッケージ：JRE、MySQL、Microsoft Visual C# 43；2015再頒布可能パッケージ、Python、 7zipで構成されます
+** Unified Manager によって生成された MySQL のアプリケーションデータ
+** アプリケーションログとアプリケーションデータディレクトリの内容
+
+
+

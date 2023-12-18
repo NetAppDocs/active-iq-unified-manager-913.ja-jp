@@ -1,0 +1,87 @@
+---
+permalink: install-windows/task_upgrade_to_unified_manager_on_microsoft_windows.html 
+sidebar: sidebar 
+keywords: upgrade, unified manager 
+summary: Unified Manager をアップグレードするには、 Windows プラットフォームでインストールファイルをダウンロードして実行します。 
+---
+= Unified Manager をアップグレードする
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+WindowsプラットフォームでUnified Manager 9.11または9.12から9.13にアップグレードするには、インストールファイルをダウンロードして実行します。
+
+* 必要なもの *
+
+* Unified Manager をアップグレードするシステムがシステム要件とソフトウェア要件を満たしている必要があります。
++
+を参照してください link:concept_virtual_infrastructure_or_hardware_system_requirements.html["ハードウェアシステムの要件"]。
+
++
+を参照してください link:reference_windows_software_and_installation_requirements.html["Windows ソフトウェアとインストールの要件"]。
+
++
+[NOTE]
+====
+Unified Manager 9.5 以降、 OpenJDK はインストールパッケージに含まれており、自動的にインストールされます。Unified Manager 9.5 以降では Oracle Java はサポートされません。
+
+====
++
+[NOTE]
+====
+アップグレードを開始する前に、システムに Microsoft .NET 4.5.2 以上がインストールされていることを確認してください。
+
+====
+* MySQL Community Edition は、 Unified Manager のアップグレード時に自動的にアップグレードされます。システムにインストールされているMySQLのバージョンが8.0.32より前の場合は、Unified Managerのアップグレードプロセスによって8.0.32に自動的にアップグレードされます。MySQLの旧バージョンから8.0.32へのスタンドアロンアップグレードを実行しないでください。
+* Windows の管理者権限が必要です。ユーザ名の先頭に感嘆符が付いていないことを確認してください!`". Installation of Unified Manager might fail if the user name of user running the installation begins with "`!`"。
+* NetApp Support Siteにログインするための有効なクレデンシャルが必要です。
+* アップグレード中に問題が使用される場合にデータが失われないようにするために、 Unified Manager マシンのバックアップを作成しておく必要があります。
+* アップグレードを実行するための十分なディスクスペースが必要です。
++
+インストールドライブに、データディレクトリのサイズよりも 2.5GB の使用可能なスペースが必要です。十分な空きスペースがないと、アップグレードが中止され、追加で必要なスペース量がエラーメッセージに表示されます。
+
+* アップグレードの実行中に、パフォーマンスデータの保持期間について、以前のデフォルト設定である 13 カ月のままにするか 6 カ月に変更するかを確認するプロンプトが表示されることがあります。変更を確認すると、 6 カ月を過ぎた過去のパフォーマンスデータはパージされます。
+* アップグレードする前に、 _<InstallDir>\JDK_and _MySQL Data Directory_ の開いているファイルまたはフォルダをすべて閉じてください。
+* Windowsシステムにアクティブなウィルス対策ソフトウェアがインストールされている場合、Unified Managerのアップグレードが失敗することがあります。Unified Managerをアップグレードする前に、システムのウィルススキャンソフトウェアをすべて無効にする必要があります。
+
+
+アップグレードプロセスの実行中は、 Unified Manager を使用できなくなります。実行中の処理がある場合は、 Unified Manager をアップグレードする前に完了しておいてください
+
+Unified Manager を OnCommand Workflow Automation のインスタンスとペアにして使用している環境では、両方の製品のソフトウェアで新しいバージョンを利用できる場合、 2 つの製品間の接続を解除してから各製品をアップグレードし、アップグレードの実行後に Workflow Automation の接続を新たにセットアップする必要があります。いずれかの製品のみをアップグレードする場合は、アップグレード後に Workflow Automation にログインし、 Unified Manager からデータを取得していることを確認します。
+
+.手順
+. NetApp Support Siteにログインし、 Unified Manager のダウンロードページに移動します。
++
+https://mysupport.netapp.com/site/products/all/details/activeiq-unified-manager/downloads-tab["NetApp Support Site"^]。
+
+. 必要なバージョンの Unified Manager を選択し、エンドユーザライセンス契約（ EULA ）に同意します。
+. Unified Manager Windows インストールファイルを Windows システムのターゲットディレクトリにダウンロードします。
+. Unified Manager インストーラの実行ファイル（ .exe ファイル）を右クリックし、管理者として実行します。
++
+Unified Manager から次のメッセージが表示されます。
+
++
+[listing]
+----
+This setup will perform an upgrade of Unified Manager. Do you want to continue?
+----
+. [ はい ] をクリックし、 [ 次へ ] をクリックします。
+. インストール時に設定した MySQL8 root パスワードを入力し、 * Next * をクリックします。
+. サポートされているWebブラウザで新しいウィンドウでWeb UIを起動し、ログインしてアップグレード後のバージョンのUnified Managerを使用します。
+. Windowsシステムにアクティブなアンチウイルスソフトウェアがインストールされている場合は、アップグレードの完了後に、アンチウイルススキャンから次のパスを手動で除外してください。
++
+** Unified Manager データディレクトリ
+** Unified Manager インストールディレクトリ
+** MySQL データディレクトリ
+
+
+
+
+[NOTE]
+====
+Unified Managerのサイレントアップグレードを行う場合は、次のコマンドを実行します。
+`ActiveIQUnifiedManager-<version\>.exe /s /v"MYSQL_PASSWORD=<password> /qn /l*v <system_drive>:\install.log"`
+
+====
