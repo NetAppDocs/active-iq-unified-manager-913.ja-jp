@@ -2781,7 +2781,6 @@ Configure Protection （保護の設定）ダイアログボックスが表示�
   <block id="357a35aedd0c37deb3a881df778a9bb4" category="list-text">[* リストア ] をクリックします。</block>
   <block id="58c0234305a387b4aa60babbbd858295" category="paragraph">リストアプロセスが開始されます。リストアプロセスを完了するためにバックエンドでジョブが作成されます。</block>
   <block id="aa2724776cabef1aaa6642e924be93b0" category="list-text">ジョブの進捗状況を表示するには、左側のナビゲーションペインで* Protection &gt; Jobs *と進み、リストア・ジョブのステータスをジョブのリストから確認します。</block>
-  <block id="f19eba4a48c0d8762f03ea93717fbfea" category="paragraph">Cloud Volumes ONTAP HA クラスタ間のリストア処理が NDMP のエラーで失敗する場合は、ソースシステムのクラスタ管理 LIF と通信できるように、デスティネーションクラスタで明示的な AWS ルートを追加しなければならないことがあります。この設定手順は、BlueXPを使用して実行します。</block>
   <block id="da824e2ac7cbba7766b2892dafabcfae" category="summary">[ ジョブ ] ページを使用して、ジョブの終了に時間がかかりすぎている場合、多数のエラーが発生している場合、または不要になった場合にジョブを中止できます。中止できるのは、ジョブの中止がステータスとタイプで許可されている場合のみです。実行中のジョブはすべて中止できます。</block>
   <block id="1c12c5d8cbc396b002ed9535e6114aa2" category="doc">ジョブを中止しています</block>
   <block id="2f0eec6ab9cc9e91d12e272bb672a463" category="list-text">ジョブのリストからジョブを 1 つ選択し、 * 中止 * をクリックします。</block>
@@ -12031,4 +12030,5 @@ Active IQ Unified Managerインターフェイスでの設定が完了すると�
   <block id="e9686e752e3e1702e7ee8d1247e9c592" category="paragraph">Storage VM停止（ocumEvtVserverDown）</block>
   <block id="41c588540e5418dc49ed54117bd1d484" category="paragraph">ボリュームレイテンシの警告しきい値を超過（ocumVolumeLatencyWarning）</block>
   <block id="16fca8959952fb5be3bdfc77f00821e0" category="paragraph">ボリュームレイテンシの重大しきい値を超過（ocumVolumeLatencyIncident）</block>
+  <block id="323f966c65a63cb769e4f899cb19451f" category="paragraph">Cloud Volumes ONTAPのHAクラスタ間のリストア処理がNDMPのエラーで失敗する場合は、ソース システムのクラスタ管理LIFと通信できるように、デスティネーション クラスタで明示的なAWSのルートを追加しなければならないことがあります。この構成手順は、 NetAppコンソールを使用して実行します。</block>
 </blocks>
